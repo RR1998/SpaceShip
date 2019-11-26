@@ -1,4 +1,4 @@
-package desing.Supplies
+package desing.supplies
 
 class Items (){
     var Name: String? = null
