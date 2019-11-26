@@ -1,5 +1,3 @@
-package desing
-
 import desing.space.U1
 
 fun main(){

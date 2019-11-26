@@ -2,7 +2,7 @@ package desing.space
 
 import kotlin.random.Random
 
-class U2:Rocket() {
+class U2:Rocket() {//Model of rocket
     override fun launch(): Boolean {
         return successOrFailure()
     }

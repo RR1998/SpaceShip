@@ -2,7 +2,7 @@ package desing.space
 
 import desing.supplies.Items
 
-open class Rocket : SpaceShip {
+open class Rocket : SpaceShip {//Rocket, structure that takes to U-1 and U-2 classes
     var rocketModel: String = "" //Rocket Model
     var rocketCost: Int = 0 //Rocket Cost
     private var rocketWeight: Int = 0 //Rocket weight + Items
