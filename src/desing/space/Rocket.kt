@@ -2,13 +2,13 @@ package desing.space
 
 import desing.supplies.Items
 
-open class Rocket() : SpaceShip {
+open class Rocket : SpaceShip {
     var rocketModel: String = "" //Rocket Model
     var rocketCost: Int = 0 //Rocket Cost
-    var rocketWeight: Int = 0 //Rocket weight + Items
+    private var rocketWeight: Int = 0 //Rocket weight + Items
     private var maxWeight: Int = 0 //Max Weight
-    var chanceLaunchExplosion: Double? = 0.00
-    var chanceLandingCrash: Double?  = 0.00
+    var chanceLaunchExplosion: Double = 0.00 //Chance of accident in launch
+    var chanceLandingCrash: Double  = 0.00 //Chance of accident in landing
     override fun launch(): Boolean {
         return true
     }
@@ -28,12 +28,12 @@ open class Rocket() : SpaceShip {
     fun crashExplosionChanceSelection(RocketModel: String, CargoCarried: Int, CargoLimit: Int){//Function to choose the rocket chance of explode or crash
         when(RocketModel){//View witch model is going to be used to calculate the chance
             "U-1" -> {
-                this.chanceLaunchExplosion = explosionCrashChance(0.05, cargoPercentage (CargoCarried, CargoLimit))
-                this.chanceLandingCrash = explosionCrashChance(0.01, cargoPercentage (CargoCarried, CargoLimit))
+                chanceLaunchExplosion = explosionCrashChance(0.05, cargoPercentage (CargoCarried, CargoLimit))
+                chanceLandingCrash = explosionCrashChance(0.01, cargoPercentage (CargoCarried, CargoLimit))
             }
             "U-2" ->{
-                this.chanceLaunchExplosion = explosionCrashChance(0.04, cargoPercentage (CargoCarried, CargoLimit))
-                this.chanceLandingCrash = explosionCrashChance(0.08, cargoPercentage (CargoCarried, CargoLimit))
+                chanceLaunchExplosion = explosionCrashChance(0.04, cargoPercentage (CargoCarried, CargoLimit))
+                chanceLandingCrash = explosionCrashChance(0.08, cargoPercentage (CargoCarried, CargoLimit))
             }
         }
     }
