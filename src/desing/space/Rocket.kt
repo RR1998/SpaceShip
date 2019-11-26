@@ -2,8 +2,11 @@ package desing.space
 
 import desing.supplies.Items
 
-class Rocket(RocketModel: String,RocketCost: Float, RocketWeight: Int, MaxWeight: Int, CargoCarried: Int?, CargoLimit: Int) : SpaceShip {
-
+class Rocket() : SpaceShip {
+    var RocketModel: String = ""
+    var RocketWeight: Int = 0
+    var MaxWeight: Int = 0
+    var CargoCarried: Int? = 0
     var chanceLaunchExplosion: Double? = 0.00
     var chanceLandingCrash: Double?  = 0.00
     var statusLaunch: Boolean? = false
@@ -15,14 +18,15 @@ class Rocket(RocketModel: String,RocketCost: Float, RocketWeight: Int, MaxWeight
         return true
     }
     override fun canCarry(Item: Items): Boolean {
-        return true
+        return Item.Weight <= MaxWeight
     }
 
     override fun carry(Item: Items): Int? {
+
         return 0
     }
 
-    private fun crashExplosionChance(RocketModel: String, CargoCarried: Int, CargoLimit: Int){
+    fun crashExplosionChance(RocketModel: String, CargoCarried: Int, CargoLimit: Int){
         when(RocketModel){
             "U-1" -> {
                 this.chanceLaunchExplosion = (0.05 * cargoPercentage (CargoCarried, CargoLimit))
