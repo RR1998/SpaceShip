@@ -2,14 +2,13 @@ package desing.space
 
 import desing.supplies.Items
 
-class Rocket() : SpaceShip {
+open class Rocket() : SpaceShip {
     var rocketModel: String = "" //Rocket Model
     var rocketCost: Int = 0 //Rocket Cost
     var rocketWeight: Int = 0 //Rocket weight + Items
     private var maxWeight: Int = 0 //Max Weight
     var chanceLaunchExplosion: Double? = 0.00
     var chanceLandingCrash: Double?  = 0.00
-    var statusLaunch: Boolean? = false
     override fun launch(): Boolean {
         return true
     }
