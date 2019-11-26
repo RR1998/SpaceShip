@@ -1,6 +1,6 @@
 package desing.space
 
-import desing.Supplies.Items
+import desing.supplies.Items
 
 interface SpaceShip {
     fun launch() :Boolean
