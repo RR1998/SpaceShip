@@ -1,2 +1,5 @@
 package Simulation
 
+class Simulation {
+
+}
