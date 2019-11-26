@@ -1,6 +1,6 @@
 package desing.supplies
 
-class Items (){
+class Items {
     var Name: String? = ""
     var Weight: Int = 0
 }
