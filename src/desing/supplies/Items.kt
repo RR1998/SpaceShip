@@ -1,6 +1,3 @@
 package desing.supplies
 
-class Items {//Items class for what is going to charge in the cargo ship
-    var Name: String? = ""
-    var Weight: Int = 0
-}
+class Items( var Name: String?, var Weight: Int, var status: Boolean = false)//Items class for what is going to charge in the cargo ship
