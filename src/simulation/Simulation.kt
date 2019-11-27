@@ -36,19 +36,30 @@ class Simulation {
         val rocketList: ArrayList<Rocket> = ArrayList()
         var flag = true
         var count = 0
+        var rocketToLoad = Rocket()
         while (flag) {
-            val r2 = U2()//Rocket variable
-            r2.createRocket()//Generate a rocket
+            if (rocketModel == "U-1") {
+                rocketToLoad = U1()//Rocket variable]
+                rocketToLoad.createRocket()//Generate a rocket
+            }
+            if (rocketModel == "U-2") {
+                rocketToLoad = U2()//Rocket variable]
+                rocketToLoad.createRocket()//Generate a rocket
+            }
             itemsList.forEach { item ->
                 //For that fills the rockets
-                if (r2.canCarry(item) && item.status) {
+                if (rocketToLoad.canCarry(item) && item.status) {
                     item.status = false
-                    r2.carry(item)
+                    rocketToLoad.carry(item)
                     count++
                 }
             }
-            r2.crashExplosionChanceSelection(r2.rocketModel, r2.rocketWeight, r2.maxWeight)
-            rocketList.add(r2)
+            rocketToLoad.crashExplosionChanceSelection(
+                rocketToLoad.rocketModel,
+                rocketToLoad.rocketWeight,
+                rocketToLoad.maxWeight
+            )
+            rocketList.add(rocketToLoad)
             if (count == itemsList.size) {
                 flag = false
             }
