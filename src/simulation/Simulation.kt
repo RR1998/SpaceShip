@@ -10,7 +10,7 @@ class Simulation {
     init {
     }
 
-    private fun loadItems(numberPhase: Int): ArrayList<Items> {
+    private fun loadItems(): ArrayList<Items> {
         var aux: Array<String>
         val itemsList = ArrayList<Items>()
         val pathAux: String = System.getProperty("user.dir").toString()
@@ -20,11 +20,12 @@ class Simulation {
                 itemsList.add(Items(aux[1].toInt()))
             }
         }
+
         return itemsList
     }
 
-    fun loadU1(phase: Int): ArrayList<Rocket> {
-        val itemsList = loadItems(phase)
+    fun loadU1(): ArrayList<Rocket> {
+        val itemsList = loadItems()
         val rocketList: ArrayList<Rocket> = ArrayList()
         var flag = true
         var count = 0
@@ -48,8 +49,8 @@ class Simulation {
         return rocketList
     }
 
-    fun loadU2(phase: Int): ArrayList<Rocket> {
-        val itemsList = loadItems(phase)
+    fun loadU2(): ArrayList<Rocket> {
+        val itemsList = loadItems()
         val rocketList: ArrayList<Rocket> = ArrayList()
         var flag = true
         var count = 0
