@@ -14,9 +14,11 @@ class Simulation {
         var aux: Array<String>
         val itemsList = ArrayList<Items>()
         val pathAux: String = System.getProperty("user.dir").toString()
-        File("$pathAux\\src\\Simulation\\Phases\\Phase-$numberPhase.txt").forEachLine {
-            aux = it.split("=").toTypedArray()
-            itemsList.add(Items(aux[0], aux[1].toInt()))
+        for(i in 1..2){
+            File("$pathAux\\src\\Simulation\\Phases\\Phase-$i.txt").forEachLine {
+                aux = it.split("=").toTypedArray()
+                itemsList.add(Items(aux[1].toInt()))
+            }
         }
         return itemsList
     }
@@ -80,7 +82,7 @@ class Simulation {
                 count++
             }
             count++
-            println("launched $count")
+            //println("launched $count")
         }
         totalBudget = rocketCost * count
         return totalBudget
