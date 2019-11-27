@@ -2,6 +2,7 @@ import desing.space.Rocket
 import simulation.Simulation
 
 fun main() {
+    for (l in 1..100){
     val simulationVariable = Simulation()
     var rocketList: ArrayList<Rocket>
     var budget: Int
@@ -19,6 +20,7 @@ fun main() {
             budget = simulationVariable.runSimulation(rocketList)
             loadProcess(rocketList, budget)
         }
+    }
     }
 }
 
