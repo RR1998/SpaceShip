@@ -14,42 +14,24 @@ class Simulation {
         var aux: Array<String>
         val itemsList = ArrayList<Items>()
         val pathAux: String = System.getProperty("user.dir").toString()
-        for(i in 1..2){
+        for (i in 1..2) {
             File("$pathAux\\src\\Simulation\\Phases\\Phase-$i.txt").forEachLine {
                 aux = it.split("=").toTypedArray()
                 itemsList.add(Items(aux[1].toInt()))
             }
         }
-
         return itemsList
     }
 
     fun loadU1(): ArrayList<Rocket> {
-        val itemsList = loadItems()
-        val rocketList: ArrayList<Rocket> = ArrayList()
-        var flag = true
-        var count = 0
-        while (flag) {
-            val r1 = U1()//Rocket variable
-            r1.createRocket()//Generate a rocket
-            itemsList.forEach { item ->
-                //For that fills the rockets
-                if (r1.canCarry(item) && item.status) {
-                    item.status = false
-                    r1.carry(item)
-                    count++
-                }
-            }
-            r1.crashExplosionChanceSelection(r1.rocketModel, r1.rocketWeight, r1.maxWeight)
-            rocketList.add(r1)
-            if (count == itemsList.size) {
-                flag = false
-            }
-        }
-        return rocketList
+        return load("U-1")
     }
 
     fun loadU2(): ArrayList<Rocket> {
+        return load("U-2")
+    }
+
+    private fun load(rocketModel: String): ArrayList<Rocket> {
         val itemsList = loadItems()
         val rocketList: ArrayList<Rocket> = ArrayList()
         var flag = true
@@ -83,7 +65,6 @@ class Simulation {
                 count++
             }
             count++
-            //println("launched $count")
         }
         totalBudget = rocketCost * count
         return totalBudget
