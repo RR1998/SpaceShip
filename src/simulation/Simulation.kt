@@ -40,11 +40,11 @@ class Simulation {
         while (flag) {
             if (rocketModel == "U-1") {
                 rocketToLoad = U1()//Rocket variable]
-                rocketToLoad.createRocket()//Generate a rocket
+                rocketToLoad.generateRocket(rocketModel)//Generate a rocket
             }
             if (rocketModel == "U-2") {
                 rocketToLoad = U2()//Rocket variable]
-                rocketToLoad.createRocket()//Generate a rocket
+                rocketToLoad.generateRocket(rocketModel)//Generate a rocket
             }
             itemsList.forEach { item ->
                 //For that fills the rockets
@@ -72,7 +72,7 @@ class Simulation {
         var count = 0
         val rocketCost: Int = ArrayRockets[0].rocketCost
         ArrayRockets.forEach { RocketLaunched ->
-            while (!RocketLaunched.launch() && !RocketLaunched.land()) {
+            while (RocketLaunched.launch() && RocketLaunched.land()) {
                 count++
             }
             count++
