@@ -13,4 +13,7 @@ class U1:Rocket() {//Model of Rocket
         val launchedRocket: Double = Random.nextDouble(0.00,1.00)
         return chanceLaunchExplosion < launchedRocket
     }
+    fun createRocket(){
+        generateRocket("U-1")
+    }
 }
