@@ -26,6 +26,6 @@ fun loadProcess(rocketList: ArrayList<Rocket>, budget: Int) {
     val totalString: String
     val rocketValue = rocketList[0].rocketCost
     val numberOfRockets = budget / rocketValue
-    totalString = "the total budget is $budget and the number of rockets sent is $numberOfRockets"
+    totalString = "the total budget is $budget and the number of rockets to send is $numberOfRockets"
     println(totalString)
 }
