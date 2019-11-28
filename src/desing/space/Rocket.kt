@@ -2,6 +2,10 @@ package desing.space
 
 import desing.supplies.Items
 
+/**
+ * the class rocket it's composed by all the core items and functions that will have U1 and U2
+ * it have the functions to calculate the crash and explosion chances also percentage of the load loaded
+ */
 open class Rocket : SpaceShip {
     //Rocket, structure that takes to U-1 and U-2 classes
     var rocketModel: String = "" //Rocket Model
@@ -9,7 +13,7 @@ open class Rocket : SpaceShip {
     var rocketWeight: Int = 0 //Rocket weight + Items, weight in kilograms
     var maxWeight: Int = 0 //Max Weight
     var chanceLaunchExplosion: Double = 0.00 //Chance of accident in launch
-    var chanceLandingCrash: Double = 0.00 //Chance of accident in landing
+    private var chanceLandingCrash: Double = 0.00 //Chance of accident in landing
     override fun launch(): Boolean {
         return true
     }
@@ -26,6 +30,10 @@ open class Rocket : SpaceShip {
         rocketWeight += Item.Weight
     }
 
+    /**
+     * crashExplosionChanceSelection is used to know the chances of explosion and crash from a rocket using
+     * it model, cargo carried and cargo limit
+     */
     fun crashExplosionChanceSelection(
         RocketModel: String,
         CargoCarried: Int,
@@ -46,7 +54,9 @@ open class Rocket : SpaceShip {
             }
         }
     }
-
+    /**
+     *explosionCrashChance receive the variables about a constant variable for explosion and the cargo complete percentage
+     */
     private fun explosionCrashChance(
         explosionVariable: Double,
         Percentage: Double
@@ -54,6 +64,9 @@ open class Rocket : SpaceShip {
         return explosionVariable * Percentage
     }
 
+    /**
+     * cargoPercentage receive CargoCarried and Cargo limit to calculate the loaded percentage and return it
+     */
     private fun cargoPercentage(
         CargoCarried: Int,
         CargoLimit: Int

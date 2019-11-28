@@ -6,10 +6,14 @@ import desing.space.U2
 import desing.supplies.Items
 import java.io.File
 
-class Simulation {
-    init {
-    }
+/**
+ *Class simulation designed to create the simulation
+ */
 
+class Simulation {
+    /**
+     * loadItems functions execute the process of read the text files that have the items to load
+     */
     private fun loadItems(): ArrayList<Items> {
         var aux: Array<String>
         val itemsList = ArrayList<Items>()
@@ -23,6 +27,9 @@ class Simulation {
         return itemsList
     }
 
+    /**
+     * loadU1 and loadU2 send the rocket model to load
+     */
     fun loadU1(): ArrayList<Rocket> {
         return load("U-1")
     }
@@ -31,6 +38,10 @@ class Simulation {
         return load("U-2")
     }
 
+    /**
+     * load function create a rocket variable then iterates the array of items and add mutch the add the rocket to an array list of rockets until there's
+     * no more items and returns an array list with the rockets launched
+     */
     private fun load(rocketModel: String): ArrayList<Rocket> {
         val itemsList = loadItems()
         val rocketList: ArrayList<Rocket> = ArrayList()
@@ -67,6 +78,9 @@ class Simulation {
         return rocketList
     }
 
+    /**
+     * runSimulation executes the simulation with the array of rockets
+     */
     fun runSimulation(ArrayRockets: ArrayList<Rocket>): Int {
         val totalBudget: Int
         var count = 0
