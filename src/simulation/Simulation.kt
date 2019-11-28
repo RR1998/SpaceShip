@@ -1,5 +1,6 @@
 package simulation
 
+import desing.shield
 import desing.space.Rocket
 import desing.space.U1
 import desing.space.U2
@@ -50,11 +51,11 @@ class Simulation {
         var rocketToLoad = Rocket()
         while (flag) {
             if (rocketModel == "U-1") {
-                rocketToLoad = U1()//Rocket variable]
+                rocketToLoad = U1()//Rocket variable
                 rocketToLoad.generateRocket(rocketModel)//Generate a rocket
             }
             if (rocketModel == "U-2") {
-                rocketToLoad = U2()//Rocket variable]
+                rocketToLoad = U2()//Rocket variable
                 rocketToLoad.generateRocket(rocketModel)//Generate a rocket
             }
             itemsList.forEach { item ->
@@ -86,10 +87,14 @@ class Simulation {
         var count = 0
         val rocketCost: Int = ArrayRockets[0].rocketCost
         ArrayRockets.forEach { RocketLaunched ->
+            count++
+            RocketLaunched.shield(RocketLaunched, count)
+            if (RocketLaunched.chanceLandingCrash == 0.0 && RocketLaunched.chanceLandingCrash == 0.0) {
+                println("Rocket with shield")
+            }
             while (RocketLaunched.launch() && RocketLaunched.land()) {
                 count++
             }
-            count++
         }
         totalBudget = rocketCost * count
         return totalBudget
