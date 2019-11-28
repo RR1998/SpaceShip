@@ -13,7 +13,7 @@ open class Rocket : SpaceShip {
     var rocketWeight: Int = 0 //Rocket weight + Items, weight in kilograms
     var maxWeight: Int = 0 //Max Weight
     var chanceLaunchExplosion: Double = 0.00 //Chance of accident in launch
-    private var chanceLandingCrash: Double = 0.00 //Chance of accident in landing
+    var chanceLandingCrash: Double = 0.00 //Chance of accident in landing
     override fun launch(): Boolean {
         return true
     }
@@ -94,7 +94,4 @@ open class Rocket : SpaceShip {
         rocketCostWeightSet()
     }
 
-    init {
-
-    }
 }
