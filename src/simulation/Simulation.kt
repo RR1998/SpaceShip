@@ -1,6 +1,6 @@
 package simulation
 
-import desing.shield
+import desing.space.shield
 import desing.space.Rocket
 import desing.space.U1
 import desing.space.U2
