@@ -1,6 +1,5 @@
-package desing
+package desing.space
 
-import desing.space.Rocket
 
 fun Rocket.shield(Rocket: Rocket, count: Int): Rocket {
     if (count.rem(3) == 0 && count != 0) {
