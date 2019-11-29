@@ -1,4 +1,4 @@
-package desing.space
+package design.space
 
 import kotlin.random.Random
 

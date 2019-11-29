@@ -1,4 +1,4 @@
-package desing.space
+package design.space
 
 
 fun Rocket.shield(Rocket: Rocket, count: Int): Rocket {

@@ -1,4 +1,4 @@
-import desing.space.Rocket
+import design.space.Rocket
 import simulation.Simulation
 
 fun main() {

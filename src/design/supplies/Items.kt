@@ -1,4 +1,4 @@
-package desing.supplies
+package design.supplies
 
 //Items class for what is going to charge in the cargo ship
 class Items(

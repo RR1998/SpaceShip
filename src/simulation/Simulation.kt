@@ -1,10 +1,10 @@
 package simulation
 
-import desing.space.shield
-import desing.space.Rocket
-import desing.space.U1
-import desing.space.U2
-import desing.supplies.Items
+import design.space.shield
+import design.space.Rocket
+import design.space.U1
+import design.space.U2
+import design.supplies.Items
 import java.io.File
 
 /**

@@ -1,6 +1,6 @@
-package desing.space
+package design.space
 
-import desing.supplies.Items
+import design.supplies.Items
 
 /**
  * the class rocket it's composed by all the core items and functions that will have U1 and U2
@@ -41,7 +41,10 @@ open class Rocket : SpaceShip {
     ) {//Function to choose the rocket chance of explode or crash
         when (RocketModel) {//View witch model is going to be used to calculate the chance
             "U-1" -> {
-                chanceLaunchExplosion = explosionCrashChance(0.05, cargoPercentage(CargoCarried, CargoLimit))
+                chanceLaunchExplosion = explosionCrashChance(
+                    0.05,
+                    cargoPercentage(CargoCarried, CargoLimit)
+                )
                 chanceLandingCrash = explosionCrashChance(0.01, cargoPercentage(CargoCarried, CargoLimit))
             }
             "U-2" -> {
@@ -54,8 +57,10 @@ open class Rocket : SpaceShip {
             }
         }
     }
+
     /**
      *explosionCrashChance receive the variables about a constant variable for explosion and the cargo complete percentage
+     *
      */
     private fun explosionCrashChance(
         explosionVariable: Double,
@@ -76,7 +81,7 @@ open class Rocket : SpaceShip {
 
     private fun rocketCostWeightSet() {//Sets the cost, and initial weight of a rocket based in it model
         when (rocketModel) {
-            "U-1" -> {
+            IDENTIFIER_ONE -> {
                 rocketCost = 100
                 rocketWeight = 10000
                 maxWeight = 18000
@@ -94,4 +99,7 @@ open class Rocket : SpaceShip {
         rocketCostWeightSet()
     }
 
+    companion object {
+        const val IDENTIFIER_ONE = "U-1"
+    }
 }
