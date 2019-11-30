@@ -38,39 +38,44 @@ open class Rocket : SpaceShip {
         RocketModel: String,
         CargoCarried: Int,
         CargoLimit: Int
-    ) {//Function to choose the rocket chance of explode or crash
-        when (RocketModel) {//View witch model is going to be used to calculate the chance
+    ) {
+        when (RocketModel) {
             "U-1" -> {
                 chanceLaunchExplosion = explosionCrashChance(
-                    0.05,
+                    ROCKET_DEFAULT_EXPLOSION_CHANCE_ONE,
                     cargoPercentage(CargoCarried, CargoLimit)
                 )
-                chanceLandingCrash = explosionCrashChance(0.01, cargoPercentage(CargoCarried, CargoLimit))
+                chanceLandingCrash = explosionCrashChance(ROCKET_DEFAULT_CRASH_CHANCE_ONE,
+                    cargoPercentage(CargoCarried, CargoLimit))
             }
             "U-2" -> {
-                chanceLaunchExplosion = explosionCrashChance(0.04, cargoPercentage(CargoCarried, CargoLimit))
-                chanceLandingCrash = explosionCrashChance(0.08, cargoPercentage(CargoCarried, CargoLimit))
+                chanceLaunchExplosion = explosionCrashChance(ROCKET_DEFAULT_EXPLOSION_CHANCE_TWO,
+                    cargoPercentage(CargoCarried, CargoLimit))
+                chanceLandingCrash = explosionCrashChance(ROCKET_DEFAULT_CRASH_CHANCE_TWO,
+                    cargoPercentage(CargoCarried, CargoLimit))
             }
             else -> {
-                chanceLaunchExplosion = 0.00
-                chanceLandingCrash = 0.00
+                chanceLaunchExplosion = ACCIDENT_CHANCE_SHIELDED
+                chanceLandingCrash = ACCIDENT_CHANCE_SHIELDED
             }
         }
     }
 
     /**
-     *explosionCrashChance receive the variables about a constant variable for explosion and the cargo complete percentage
+     *explosionCrashChance receive the variables about a constant variable
+     * for explosion and the cargo complete percentage
      *
      */
     private fun explosionCrashChance(
         explosionVariable: Double,
         Percentage: Double
-    ): Double {//Calculates the chance of explode or crash from the rocket
+    ): Double {
         return explosionVariable * Percentage
     }
 
     /**
-     * cargoPercentage receive CargoCarried and Cargo limit to calculate the loaded percentage and return it
+     * cargoPercentage receive CargoCarried and Cargo limit to calculate
+     * the loaded percentage and return it
      */
     private fun cargoPercentage(
         CargoCarried: Int,
@@ -79,17 +84,21 @@ open class Rocket : SpaceShip {
         return CargoCarried.toFloat() / CargoLimit.toDouble()
     }
 
-    private fun rocketCostWeightSet() {//Sets the cost, and initial weight of a rocket based in it model
+    /**
+     * rocketCosWeightSet sets the cost, and initial weight of a rocket based in it model
+     */
+
+    private fun rocketCostWeightSet() {
         when (rocketModel) {
-            IDENTIFIER_ONE -> {
-                rocketCost = 100
-                rocketWeight = 10000
-                maxWeight = 18000
+            IDENTIFIER_ROCKET_TYPE_ONE -> {
+                rocketCost = ROCKET_DEFAULT_COST_ONE
+                rocketWeight = ROCKET_DEFAULT_WEIGHT_ONE
+                maxWeight = ROCKET_DEFAULT_MAX_WEIGHT_ONE
             }
-            "U-2" -> {
-                rocketCost = 120
-                rocketWeight = 18000
-                maxWeight = 29000
+            IDENTIFIER_ROCKET_TYPE_TWO -> {
+                rocketCost = ROCKET_DEFAULT_COST_TWO
+                rocketWeight = ROCKET_DEFAULT_WEIGHT_TWO
+                maxWeight = ROCKET_DEFAULT_MAX_WEIGHT_TWO
             }
         }
     }
@@ -99,7 +108,23 @@ open class Rocket : SpaceShip {
         rocketCostWeightSet()
     }
 
+    /**
+     * Companion object where are the defaults values for the rockets
+     */
+
     companion object {
-        const val IDENTIFIER_ONE = "U-1"
+        const val IDENTIFIER_ROCKET_TYPE_ONE = "U-1"
+        const val IDENTIFIER_ROCKET_TYPE_TWO = "U-2"
+        const val ROCKET_DEFAULT_COST_ONE = 100
+        const val ROCKET_DEFAULT_COST_TWO = 120
+        const val ROCKET_DEFAULT_WEIGHT_ONE = 10000
+        const val ROCKET_DEFAULT_WEIGHT_TWO = 18000
+        const val ROCKET_DEFAULT_MAX_WEIGHT_ONE = 18000
+        const val ROCKET_DEFAULT_MAX_WEIGHT_TWO = 29000
+        const val ROCKET_DEFAULT_EXPLOSION_CHANCE_ONE = 0.05
+        const val ROCKET_DEFAULT_EXPLOSION_CHANCE_TWO = 0.04
+        const val ROCKET_DEFAULT_CRASH_CHANCE_ONE = 0.01
+        const val ROCKET_DEFAULT_CRASH_CHANCE_TWO = 0.08
+        const val ACCIDENT_CHANCE_SHIELDED = 0.00
     }
 }
