@@ -1,6 +1,7 @@
 package design.space
 
 import kotlin.random.Random
+
 //Model of rocket
 class U2 : Rocket() {
     override fun launch(): Boolean {
@@ -10,6 +11,7 @@ class U2 : Rocket() {
     override fun land(): Boolean {
         return successOrFailure()
     }
+
     /**
      * succesOrFailure executes a process to know if the rocket complete its launch and if its reach the planet
      */

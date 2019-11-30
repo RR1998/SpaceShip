@@ -31,8 +31,8 @@ open class Rocket : SpaceShip {
     }
 
     /**
-     * crashExplosionChanceSelection is used to know the chances of explosion and crash from a rocket using
-     * it model, cargo carried and cargo limit
+     * crashExplosionChanceSelection is used to know the chances of explosion and crash from
+     * arocket using it model, cargo carried and cargo limit
      */
     fun crashExplosionChanceSelection(
         RocketModel: String,
@@ -45,14 +45,20 @@ open class Rocket : SpaceShip {
                     ROCKET_DEFAULT_EXPLOSION_CHANCE_ONE,
                     cargoPercentage(CargoCarried, CargoLimit)
                 )
-                chanceLandingCrash = explosionCrashChance(ROCKET_DEFAULT_CRASH_CHANCE_ONE,
-                    cargoPercentage(CargoCarried, CargoLimit))
+                chanceLandingCrash = explosionCrashChance(
+                    ROCKET_DEFAULT_CRASH_CHANCE_ONE,
+                    cargoPercentage(CargoCarried, CargoLimit)
+                )
             }
             "U-2" -> {
-                chanceLaunchExplosion = explosionCrashChance(ROCKET_DEFAULT_EXPLOSION_CHANCE_TWO,
-                    cargoPercentage(CargoCarried, CargoLimit))
-                chanceLandingCrash = explosionCrashChance(ROCKET_DEFAULT_CRASH_CHANCE_TWO,
-                    cargoPercentage(CargoCarried, CargoLimit))
+                chanceLaunchExplosion = explosionCrashChance(
+                    ROCKET_DEFAULT_EXPLOSION_CHANCE_TWO,
+                    cargoPercentage(CargoCarried, CargoLimit)
+                )
+                chanceLandingCrash = explosionCrashChance(
+                    ROCKET_DEFAULT_CRASH_CHANCE_TWO,
+                    cargoPercentage(CargoCarried, CargoLimit)
+                )
             }
             else -> {
                 chanceLaunchExplosion = ACCIDENT_CHANCE_SHIELDED

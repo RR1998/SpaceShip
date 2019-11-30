@@ -99,7 +99,8 @@ class Simulation {
         totalBudget = rocketCost * count
         return totalBudget
     }
-    companion object{
+
+    companion object {
         const val IDENTIFIER_ROCKET_TYPE_ONE = "U-1"
         const val IDENTIFIER_ROCKET_TYPE_TWO = "U-2"
         const val ACCIDENT_CHANCE_SHIELDED = 0.00
