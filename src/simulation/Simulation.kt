@@ -32,11 +32,11 @@ class Simulation {
      * loadU1 and loadU2 send the rocket model to load
      */
     fun loadU1(): ArrayList<Rocket> {
-        return load("U-1")
+        return load(IDENTIFIER_ROCKET_TYPE_ONE)
     }
 
     fun loadU2(): ArrayList<Rocket> {
-        return load("U-2")
+        return load(IDENTIFIER_ROCKET_TYPE_TWO)
     }
 
     /**
@@ -50,11 +50,11 @@ class Simulation {
         var count = 0
         var rocketToLoad = Rocket()
         while (flag) {
-            if (rocketModel == "U-1") {
+            if (rocketModel == IDENTIFIER_ROCKET_TYPE_ONE) {
                 rocketToLoad = U1()//Rocket variable
                 rocketToLoad.generateRocket(rocketModel)//Generate a rocket
             }
-            if (rocketModel == "U-2") {
+            if (rocketModel == IDENTIFIER_ROCKET_TYPE_TWO) {
                 rocketToLoad = U2()//Rocket variable
                 rocketToLoad.generateRocket(rocketModel)//Generate a rocket
             }
@@ -89,8 +89,8 @@ class Simulation {
         ArrayRockets.forEach { RocketLaunched ->
             count++
             RocketLaunched.shield(RocketLaunched, count)
-            if (RocketLaunched.chanceLandingCrash == 0.0 && RocketLaunched.chanceLandingCrash == 0.0) {
-                println("Rocket with shield")
+            if (RocketLaunched.chanceLandingCrash == ACCIDENT_CHANCE_SHIELDED && RocketLaunched.chanceLandingCrash == ACCIDENT_CHANCE_SHIELDED) {
+                println(ROCKET_SHIELDED_MESSAGE)
             }
             while (RocketLaunched.launch() && RocketLaunched.land()) {
                 count++
@@ -98,5 +98,11 @@ class Simulation {
         }
         totalBudget = rocketCost * count
         return totalBudget
+    }
+    companion object{
+        const val IDENTIFIER_ROCKET_TYPE_ONE = "U-1"
+        const val IDENTIFIER_ROCKET_TYPE_TWO = "U-2"
+        const val ACCIDENT_CHANCE_SHIELDED = 0.00
+        const val ROCKET_SHIELDED_MESSAGE = "Rocket shielded"
     }
 }
