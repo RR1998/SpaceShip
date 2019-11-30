@@ -2,6 +2,9 @@ package design.space
 
 import design.supplies.Items
 
+/**
+ * interface where its declared every base function to Rocket
+ */
 interface SpaceShip {
     fun launch(): Boolean
     fun land(): Boolean
