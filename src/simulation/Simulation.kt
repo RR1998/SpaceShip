@@ -20,7 +20,7 @@ class Simulation {
         val itemsList = ArrayList<Items>()
         val pathAux: String = System.getProperty("user.dir").toString()
         for (i in 1..2) {
-            File("$pathAux\\src\\Simulation\\Phases\\Phase-$i.txt").forEachLine {
+            File("$pathAux/src/Simulation/Phases/Phase-$i.txt").forEachLine {
                 aux = it.split("=").toTypedArray()
                 itemsList.add(Items(aux[1].toInt()))
             }
@@ -67,9 +67,9 @@ class Simulation {
                 }
             }
             rocketToLoad.crashExplosionChanceSelection(
-                rocketToLoad.rocketModel,
-                rocketToLoad.rocketWeight,
-                rocketToLoad.maxWeight
+                    rocketToLoad.rocketModel,
+                    rocketToLoad.rocketWeight,
+                    rocketToLoad.maxWeight
             )
             rocketList.add(rocketToLoad)
             if (count == itemsList.size) {
