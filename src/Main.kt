@@ -1,4 +1,6 @@
 import design.space.Rocket
+import design.space.Rocket.Companion.IDENTIFIER_ROCKET_TYPE_ONE
+import design.space.Rocket.Companion.IDENTIFIER_ROCKET_TYPE_TWO
 import simulation.Simulation
 
 fun main() {
@@ -10,12 +12,12 @@ fun main() {
             val rocketType = "U-$i"
             val loadingString = "Loading fleet of $rocketType ships.."
             println(loadingString)
-            if (rocketType == "U-1") {
+            if (rocketType == IDENTIFIER_ROCKET_TYPE_ONE) {
                 rocketList = simulationVariable.loadU1()
                 budget = simulationVariable.runSimulation(rocketList)
                 loadProcess(rocketList, budget)
             }
-            if (rocketType == "U-2") {
+            if (rocketType == IDENTIFIER_ROCKET_TYPE_TWO) {
                 rocketList = simulationVariable.loadU2()
                 budget = simulationVariable.runSimulation(rocketList)
                 loadProcess(rocketList, budget)
