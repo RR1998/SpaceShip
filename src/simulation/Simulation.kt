@@ -88,7 +88,7 @@ class Simulation {
         val rocketCost: Int = arrayRockets[0].rocketCost
         arrayRockets.forEach { rocketLaunched ->
             count++
-            rocketLaunched.shield(rocketLaunched, count)
+            rocketLaunched.shield(count)
             if (rocketLaunched.chanceLandingCrash == ACCIDENT_CHANCE_SHIELDED && rocketLaunched.chanceLandingCrash == ACCIDENT_CHANCE_SHIELDED) {
                 println(ROCKET_SHIELDED_MESSAGE)
             }
