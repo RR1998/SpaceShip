@@ -1,6 +1,7 @@
 package design.space
 
 import design.supplies.Items
+import src.design.RocketType
 
 /**
  * the class rocket it's composed by all the core items and functions that will have U1 and U2
@@ -96,12 +97,12 @@ open class Rocket : SpaceShip {
 
     private fun rocketCostWeightSet() {
         when (rocketModel) {
-            IDENTIFIER_ROCKET_TYPE_ONE -> {
+            RocketType.IDENTIFIER_ROCKET_TYPE_ONE.type -> {
                 rocketCost = ROCKET_DEFAULT_COST_ONE
                 rocketWeight = ROCKET_DEFAULT_WEIGHT_ONE
                 maxWeight = ROCKET_DEFAULT_MAX_WEIGHT_ONE
             }
-            IDENTIFIER_ROCKET_TYPE_TWO -> {
+            RocketType.IDENTIFIER_ROCKET_TYPE_TWO.type -> {
                 rocketCost = ROCKET_DEFAULT_COST_TWO
                 rocketWeight = ROCKET_DEFAULT_WEIGHT_TWO
                 maxWeight = ROCKET_DEFAULT_MAX_WEIGHT_TWO
@@ -119,8 +120,6 @@ open class Rocket : SpaceShip {
      */
 
     companion object {
-        const val IDENTIFIER_ROCKET_TYPE_ONE = "U-1"
-        const val IDENTIFIER_ROCKET_TYPE_TWO = "U-2"
         const val ROCKET_DEFAULT_COST_ONE = 100
         const val ROCKET_DEFAULT_COST_TWO = 120
         const val ROCKET_DEFAULT_WEIGHT_ONE = 10000

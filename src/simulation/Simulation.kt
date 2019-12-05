@@ -20,7 +20,7 @@ class Simulation {
         val itemsList = ArrayList<Items>()
         val pathAux: String = System.getProperty("user.dir").toString()
         for (i in 1..2) {
-            File("$pathAux\\src\\Simulation\\Phases\\Phase-$i.txt").forEachLine {
+            File("$pathAux/Phases/Phase-$i.txt").forEachLine {
                 aux = it.split("=").toTypedArray()
                 itemsList.add(Items(aux[1].toInt()))
             }
@@ -67,9 +67,9 @@ class Simulation {
                 }
             }
             rocketToLoad.crashExplosionChanceSelection(
-                rocketToLoad.rocketModel,
-                rocketToLoad.rocketWeight,
-                rocketToLoad.maxWeight
+                    rocketToLoad.rocketModel,
+                    rocketToLoad.rocketWeight,
+                    rocketToLoad.maxWeight
             )
             rocketList.add(rocketToLoad)
             if (count == itemsList.size) {
@@ -82,17 +82,17 @@ class Simulation {
     /**
      * runSimulation executes the simulation with the array of rockets
      */
-    fun runSimulation(ArrayRockets: ArrayList<Rocket>): Int {
+    fun runSimulation(arrayRockets: ArrayList<Rocket>): Int {
         val totalBudget: Int
         var count = 0
-        val rocketCost: Int = ArrayRockets[0].rocketCost
-        ArrayRockets.forEach { RocketLaunched ->
+        val rocketCost: Int = arrayRockets[0].rocketCost
+        arrayRockets.forEach { rocketLaunched ->
             count++
-            RocketLaunched.shield(RocketLaunched, count)
-            if (RocketLaunched.chanceLandingCrash == ACCIDENT_CHANCE_SHIELDED && RocketLaunched.chanceLandingCrash == ACCIDENT_CHANCE_SHIELDED) {
+            rocketLaunched.shield(count)
+            if (rocketLaunched.chanceLandingCrash == ACCIDENT_CHANCE_SHIELDED && rocketLaunched.chanceLandingCrash == ACCIDENT_CHANCE_SHIELDED) {
                 println(ROCKET_SHIELDED_MESSAGE)
             }
-            while (RocketLaunched.launch() && RocketLaunched.land()) {
+            while (rocketLaunched.launch() && rocketLaunched.land()) {
                 count++
             }
         }
